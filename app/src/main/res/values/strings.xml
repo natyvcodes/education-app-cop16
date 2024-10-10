@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">myApp</string>
+    <string name="tx_bienvenida">"LA COP16"</string>
+</resources>
