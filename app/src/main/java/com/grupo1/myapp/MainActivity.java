@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         new Handler().postDelayed(() -> {
-            Intent intent = new Intent(MainActivity.this, Principal.class);
+            Intent intent = new Intent(MainActivity.this, Articulos.class);
             startActivity(intent);
             finish();
         }, waitTime);
