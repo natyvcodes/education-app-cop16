@@ -19,7 +19,7 @@
             android:name=".Articulos"
             android:exported="false" />
         <activity
-            android:name=".Inicio"
+            android:name=".Principal"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
