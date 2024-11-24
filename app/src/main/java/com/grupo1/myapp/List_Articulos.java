@@ -4,6 +4,8 @@ package com.grupo1.myapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -14,16 +16,18 @@ import com.google.android.material.navigation.NavigationBarView;
 
 public class List_Articulos extends AppCompatActivity {
     private BottomNavigationView bottomNavigationView;
-
+    private Button acuerdos;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_list_articulos);
-
-
-        selectBottomNavItem(R.id.articulos);
+        acuerdos = findViewById(R.id.acuerdos);
         bottomNavigationView = findViewById(R.id.bottom_navigation);
+        selectBottomNavItem(R.id.articulos);
+
+
+
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -43,7 +47,12 @@ public class List_Articulos extends AppCompatActivity {
     }
     private void selectBottomNavItem(int itemId) {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
-        bottomNavigationView.setSelectedItemId(itemId); }
+        bottomNavigationView.setSelectedItemId(itemId);
+    }
+    public void acuerdosActivity(View view){
+        Intent intent = new Intent(List_Articulos.this, Articulos.class);
+        startActivity(intent);
+    }
 
 }
 

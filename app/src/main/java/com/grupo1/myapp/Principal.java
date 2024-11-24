@@ -36,9 +36,11 @@ public class Principal extends AppCompatActivity {
                 if(id == R.id.home){
                     Intent intent = new Intent(Principal.this, Principal.class);
                     startActivity(intent);
+                    overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
                 }else if(id == R.id.articulos) {
-                    Intent intent = new Intent(Principal.this, Articulos.class);
+                    Intent intent = new Intent(Principal.this, List_Articulos.class);
                     startActivity(intent);
+
                 }else if(id == R.id.setting){
 
                 }
