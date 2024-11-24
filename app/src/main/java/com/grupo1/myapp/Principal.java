@@ -18,7 +18,6 @@ public class Principal extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_principal);
         //Este es una prueba
-        articulo = findViewById(R.id.parrafo);
         databaseHelper.insertarArticulo(1,"La guerra ecologica", "Judy",12032024,"Un texto random", "no hay", "No hay");
         String text = databaseHelper.mostrarParrafo(1);
         articulo.setText(text);
