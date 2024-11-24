@@ -1,4 +1,4 @@
-package com.grupo1.myapp;
+package database;
 
 import android.content.ContentValues;
 import android.content.Context;

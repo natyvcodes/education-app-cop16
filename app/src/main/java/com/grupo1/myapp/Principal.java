@@ -1,15 +1,19 @@
 package com.grupo1.myapp;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 
 public class Principal extends AppCompatActivity {
     private BottomNavigationView bottomNavigationView;
@@ -20,13 +24,27 @@ public class Principal extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_principal);
-
-
-
         webVideo = findViewById(R.id.webVideo);
+
         bottomNavigationView = findViewById(R.id.bottom_navigation);
-        int id = bottomNavigationView.getSelectedItemId();
-        Log.d("Hola", "El id" + id);
+
+        selectBottomNavItem(R.id.home);
+        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int id = item.getItemId();
+                if(id == R.id.home){
+                    Intent intent = new Intent(Principal.this, Principal.class);
+                    startActivity(intent);
+                }else if(id == R.id.articulos) {
+                    Intent intent = new Intent(Principal.this, Articulos.class);
+                    startActivity(intent);
+                }else if(id == R.id.setting){
+
+                }
+                return true;
+            }
+        });
 
 
         //video de youtube
@@ -36,5 +54,8 @@ public class Principal extends AppCompatActivity {
         webVideo.setWebChromeClient(new WebChromeClient());
 
     }
+    private void selectBottomNavItem(int itemId) {
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setSelectedItemId(itemId); }
 
 }
