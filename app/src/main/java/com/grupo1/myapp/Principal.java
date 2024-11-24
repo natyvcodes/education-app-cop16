@@ -1,25 +1,25 @@
 package com.grupo1.myapp;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.widget.TextView;
+import android.util.Log;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class Principal extends AppCompatActivity {
-    DatabaseHelper databaseHelper = new DatabaseHelper(this);
-    private TextView articulo;
+    private BottomNavigationView bottomNavigationView;
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_principal);
-        //Este es una prueba
-        databaseHelper.insertarArticulo(1,"La guerra ecologica", "Judy",12032024,"Un texto random", "no hay", "No hay");
-        String text = databaseHelper.mostrarParrafo(1);
-        articulo.setText(text);
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
+        int id = bottomNavigationView.getSelectedItemId();
+        Log.d("Hola", "El id" + id);
     }
+
 }
