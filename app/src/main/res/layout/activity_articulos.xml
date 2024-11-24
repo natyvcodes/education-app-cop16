@@ -9,6 +9,7 @@
     android:background="@color/Background"
     android:fillViewport="true"
     android:orientation="vertical"
+    android:paddingTop="20dp"
     tools:context=".Articulos">
 
     <ScrollView
@@ -20,7 +21,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="14dp">
+            android:layout_margin="20dp">
 
             <TextView
                 android:id="@+id/tv1"
@@ -40,7 +41,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv1"
-                android:layout_marginVertical="10dp"
+                android:layout_marginBottom="14dp"
                 android:orientation="horizontal">
 
                 <TextView
