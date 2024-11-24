@@ -10,6 +10,14 @@
     android:orientation="vertical"
     tools:context=".Principal">
 
+    <WebView
+        android:id="@+id/webVideo"
+        android:layout_width="match_parent"
+        android:layout_height="320dp"
+        />
+
+
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
