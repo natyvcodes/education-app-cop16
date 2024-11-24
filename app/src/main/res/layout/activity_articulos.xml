@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+=======
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+>>>>>>> 14574ab129758589438c47136d5636823bcd4993
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -9,6 +13,26 @@
     tools:context=".Articulos"
     android:fillViewport="true">
 
+<<<<<<< HEAD
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Articulos"
+        android:textSize="100sp"/>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:background="#FFFFFF"
+        android:layout_alignParentBottom="true"
+        app:itemIconTint="@color/icon_selector"
+        app:itemTextColor="@color/botton_navigation_selector"
+        app:menu="@menu/botton_navigation_menu"
+        android:layout_height="wrap_content"/>
+</RelativeLayout>
+=======
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -108,3 +132,4 @@
             />
     </RelativeLayout>
 </ScrollView>
+>>>>>>> 14574ab129758589438c47136d5636823bcd4993

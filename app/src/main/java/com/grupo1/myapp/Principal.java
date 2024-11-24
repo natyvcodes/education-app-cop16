@@ -1,8 +1,6 @@
 package com.grupo1.myapp;
 
 import android.os.Bundle;
-import android.webkit.WebChromeClient;
-import android.webkit.WebView;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -14,7 +12,6 @@ import androidx.core.view.WindowInsetsCompat;
 public class Principal extends AppCompatActivity {
     DatabaseHelper databaseHelper = new DatabaseHelper(this);
     private TextView articulo;
-    private WebView webVideo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,11 +19,8 @@ public class Principal extends AppCompatActivity {
         setContentView(R.layout.activity_principal);
         //Este es una prueba
         articulo = findViewById(R.id.parrafo);
-
         databaseHelper.insertarArticulo(1,"La guerra ecologica", "Judy",12032024,"Un texto random", "no hay", "No hay");
         String text = databaseHelper.mostrarParrafo(1);
         articulo.setText(text);
-
-
     }
 }
