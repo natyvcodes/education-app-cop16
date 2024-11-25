@@ -23,6 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="7dp"
             android:text="Educacion e Informacion"
+            android:textStyle="bold"
             android:textColor="@color/BlueMain"
             android:textSize="30sp" />
 
@@ -32,6 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="7sp"
             android:layout_marginBottom="7sp"
+            android:textStyle="bold"
             android:text="Articulos disponibles: 6"
             android:textSize="16sp" />
     </LinearLayout>
