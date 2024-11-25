@@ -23,7 +23,6 @@ import com.grupo1.myapp.Principal;
 import com.grupo1.myapp.databinding.ActivityRegisterBinding;
 
 import database.DatabaseHelper;
-import kotlinx.coroutines.scheduling.Task;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -99,12 +98,12 @@ public class RegisterActivity extends AppCompatActivity {
         TextWatcher afterTextChangedListener = new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                // ignore
+
             }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                // ignore
+
             }
 
             @Override

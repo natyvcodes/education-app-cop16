@@ -64,11 +64,15 @@ public class List_Articulos extends AppCompatActivity {
             //Aqui nos traemos la imagenes de cada articulo
             Drawable rightDrawable = getDrawable(R.drawable.prueba).mutate();
             button.setCompoundDrawablesWithIntrinsicBounds(null, null, rightDrawable, null);
-
             button.setBackground(buttonShape);
             button.setTextColor(Color.WHITE);
-            button.setOnClickListener(v -> {
 
+
+            button.setOnClickListener(v -> {
+                Intent intent = new Intent(this, Articulos.class);
+                ArrayList<String> articulo = obtenerInfoArticulos(titulo);
+                intent.putExtra("articulo",articulo);
+                startActivity(intent);
             });
 
             linearLayout.addView(button);
@@ -117,6 +121,22 @@ public class List_Articulos extends AppCompatActivity {
         db.close();
         return titulos;
     }
+    private ArrayList<String> obtenerInfoArticulos(String nomArticulo) {
+        ArrayList<String> articulo = new ArrayList<>();
+        SQLiteDatabase data = db.getReadableDatabase();
+        Cursor cursor = data.rawQuery("SELECT * FROM ARTICULO where nombre =?", new String[]{nomArticulo});
+        if (cursor.moveToFirst()) {
+            int columnCount = cursor.getColumnCount();
+            do {
+                for (int i = 0; i < columnCount; i++) {
+                    articulo.add(cursor.getString(i));
+                }
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        return articulo;
+    }
+
 
 }
 

@@ -12,6 +12,9 @@ import com.grupo1.myapp.R;
 
 import com.grupo1.myapp.data.RegisterRepository;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class RegisterViewModel extends ViewModel {
 
     private final MutableLiveData<RegisterFormState> registerFormState = new MutableLiveData<>();
@@ -63,6 +66,9 @@ public class RegisterViewModel extends ViewModel {
     }
 
     private boolean isPasswordValid(String password) {
-        return password != null && password.trim().length() > 5;
+        String regex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@#$%^&+=!]).*$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(password);
+        return password != null && password.trim().length() > 5 && matcher.matches();
     }
 }
