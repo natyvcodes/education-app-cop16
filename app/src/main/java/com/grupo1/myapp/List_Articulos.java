@@ -40,32 +40,35 @@ public class List_Articulos extends AppCompatActivity {
         setContentView(R.layout.activity_list_articulos);
 
 
-
         int[] colores = {getColor(R.color.Green), getColor(R.color.Red), getColor(R.color.BlueTwo), getColor(R.color.Yellow), getColor(R.color.Violet)};
         List<String> titulos = obtenerTitulos();
-
-
         LinearLayout linearLayout = findViewById(R.id.container);
         numArticulos = findViewById(R.id.numArticulos);
         numArticulos.setText("Articulos disponibles: " + titulos.size());
         int colorIndex = 0;
         for (String titulo : titulos) {
             Button button = new Button(this);
-
+            Log.d("Titulo", titulo);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT,
                     200
             );
-            layoutParams.setMargins(0, 10, 0, 10);
+            layoutParams.setMargins(0, 20, 0, 20);
             button.setLayoutParams(layoutParams);
-
-            button.setText(titulo.toLowerCase());
+            button.setTransformationMethod(null); // Esto desactiva la transformación de texto a mayúsculas
+            button.setText(titulo);
             button.setTextSize(16);
+
             Drawable buttonShape = getDrawable(R.drawable.button_shape).mutate();
             buttonShape.setTint(colores[colorIndex % colores.length]);
+            //Aqui nos traemos la imagenes de cada articulo
+            Drawable rightDrawable = getDrawable(R.drawable.prueba).mutate();
+            button.setCompoundDrawablesWithIntrinsicBounds(null, null, rightDrawable, null);
+
             button.setBackground(buttonShape);
             button.setTextColor(Color.WHITE);
             button.setOnClickListener(v -> {
+
             });
 
             linearLayout.addView(button);
