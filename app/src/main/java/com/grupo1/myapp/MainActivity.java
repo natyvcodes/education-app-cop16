@@ -6,7 +6,8 @@ import android.os.Handler;
 
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
+
+import com.grupo1.myapp.ui.register.RegisterActivity;
 
 
 public class MainActivity extends AppCompatActivity {
