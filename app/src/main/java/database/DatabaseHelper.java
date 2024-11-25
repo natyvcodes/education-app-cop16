@@ -33,47 +33,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(TABLE_ARTICULO);
+        db.execSQL("INSERT INTO ARTICULO (nombre, autor, fecha, parrafo, audio, imagen) " +
+                "VALUES ('Introduccion a la COP16', 'Autor 1', 20240824, 'Este es el primer artículo', NULL, NULL);");
+        db.execSQL("INSERT INTO ARTICULO (nombre, autor, fecha, parrafo, audio, imagen) " +
+                "VALUES ('Acuerdos de la COP16', 'Autor 2', 20240821, 'Este es el segundo artículo', NULL, 'imagen2.png');");
+        db.execSQL("INSERT INTO ARTICULO (nombre, autor, fecha, parrafo, audio, imagen) " +
+                "VALUES ('Firmas de la COP16', 'Autor 3', 20241122, 'Este es el tercer artículo', 'audio3.mp3', NULL);");
+        db.execSQL("INSERT INTO ARTICULO (nombre, autor, fecha, parrafo, audio, imagen) " +
+                "VALUES ('Aves en Colombia', 'Autor 3', 20241122, 'Este es el tercer artículo', 'audio3.mp3', NULL);");
+        db.execSQL("INSERT INTO ARTICULO (nombre, autor, fecha, parrafo, audio, imagen) " +
+                "VALUES ('Fauna y flora como cuidarla', 'Autor 3', 20241122, 'Este es el tercer artículo', 'audio3.mp3', NULL);");
+        db.execSQL("INSERT INTO ARTICULO (nombre, autor, fecha, parrafo, audio, imagen) " +
+                "VALUES ('Natalia y Duvan', 'Autor 3', 20241122, 'Este es el tercer artículo', 'audio3.mp3', NULL);");
+        db.execSQL("INSERT INTO ARTICULO (nombre, autor, fecha, parrafo, audio, imagen) " +
+                "VALUES ('Articulo de prueba', 'Autor 3', 20241122, 'Este es el tercer artículo', 'audio3.mp3', NULL);");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
-    }
-    public void insertarArticulo(int id, String nombre, String autor, int fecha, String parrafo, String audio, String imagen){
-        SQLiteDatabase db = this.getReadableDatabase();
-        ContentValues valores = new ContentValues();
-
-        valores.put("id", id);
-        valores.put("nombre", nombre);
-        valores.put("autor", autor);
-        valores.put("fecha",fecha);
-        valores.put("parrafo", parrafo);
-        valores.put("audio", audio);
-        valores.put("imagen", imagen);
-
-        long resultado = db.insert("Articulo", null, valores);
-
-        if (resultado == -1) {
-            Log.e("DB_ERROR", "Error al insertar el articulo.");
-        } else {
-            Log.d("DB_SUCCESS", "Articulo insertado correctamente con ID: " + resultado);
-        }
-        db.close();
-    }
-    public String mostrarParrafo(int idArticulo){
-        SQLiteDatabase db = this.getReadableDatabase();
-        String texto = "";
-
-        Cursor cursor = db.rawQuery("SELECT parrafo FROM articulo WHERE id = ?",
-                new String[]{String.valueOf(idArticulo)});
-
-        if (cursor.moveToFirst()) {
-            texto = cursor.getString(0); // Obtén el valor de la primera columna
-        }
-
-        cursor.close();
-        db.close();
-        return texto;
     }
 
 }

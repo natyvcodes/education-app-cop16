@@ -21,7 +21,7 @@
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="7dp"
+            android:layout_marginLeft="7dp"
             android:text="Educacion e Informacion"
             android:textColor="@color/BlueMain"
             android:textSize="30sp" />
@@ -30,68 +30,10 @@
             android:id="@+id/numArticulos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="7sp"
+            android:layout_marginLeft="7sp"
+            android:layout_marginBottom="7sp"
             android:text="Articulos disponibles: 6"
             android:textSize="16sp" />
-
-        <Button
-            android:id="@+id/intro"
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_margin="7dp"
-            android:background="@drawable/button_shape"
-            android:drawableRight="@drawable/prueba"
-            android:text="Introduccion a la COP16"
-            android:textColor="@color/white"
-            app:backgroundTint="@color/Green"
-            android:textSize="16sp"/>
-
-        <Button
-            android:id="@+id/acuerdos"
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_margin="7dp"
-            android:background="@drawable/button_shape"
-            android:drawableRight="@drawable/prueba"
-            android:onClick="acuerdosActivity"
-            android:text="Acuerdos de la COP 16"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            app:backgroundTint="@color/Red" />
-
-        <Button
-            android:id="@+id/firmas"
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_margin="7dp"
-            android:background="@drawable/button_shape"
-            android:drawableRight="@drawable/prueba"
-            android:text="Firmas de la COP16"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            app:backgroundTint="@color/BlueMain" />
-
-        <Button
-            android:id="@+id/aves"
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_margin="7dp"
-            android:background="@drawable/button_shape"
-            android:drawableRight="@drawable/prueba"
-            android:text="Firmas de la COP16"
-            android:textSize="16sp"
-            app:backgroundTint="@color/Yellow" />
-
-        <Button
-            android:id="@+id/fauflo"
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_margin="7dp"
-            android:background="@drawable/button_shape"
-            android:drawableRight="@drawable/prueba"
-            android:text="Fauna y flora como cuidarla"
-            android:textSize="16sp"
-            app:backgroundTint="@color/Violet" />
     </LinearLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
