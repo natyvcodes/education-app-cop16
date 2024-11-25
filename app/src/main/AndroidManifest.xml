@@ -8,9 +8,9 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/cop16logo"
+        android:icon="@mipmap/ic_launcher_foreground"
         android:label="COP16 Education"
-        android:roundIcon="@mipmap/cop16logo"
+        android:roundIcon="@mipmap/ic_launcher_monochrome"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApp"
         tools:targetApi="31">
