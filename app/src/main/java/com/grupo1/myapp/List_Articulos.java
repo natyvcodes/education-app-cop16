@@ -10,16 +10,23 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+
+
 import java.util.ArrayList;
 import java.util.List;
+
+
 import database.DatabaseHelper;
 
 
@@ -63,18 +70,54 @@ public class List_Articulos extends AppCompatActivity {
             button.setTextColor(Color.WHITE);
 
 
+
+
             button.setOnClickListener(v -> {
                 Intent intent = new Intent(this, Articulos.class);
                 ArrayList<String> articulo = obtenerInfoArticulos(titulo);
                 intent.putExtra("articulo",articulo);
+                String texto = articulo.get(4);
+                String[] partes = texto.split("\\s+");
+                StringBuilder texto1 = new StringBuilder();
+                StringBuilder texto2 = new StringBuilder();
+                StringBuilder texto3 = new StringBuilder();
+
+                int longitudMinimaTexto1 = 120;
+                int longitudMinimaTexto2 = 275;
+
+                boolean primerPuntoEncontrado = false;
+
+                for (String palabra : partes) {
+                    if (!primerPuntoEncontrado) {
+                        texto1.append(palabra).append(" ");
+                        if (palabra.contains(".") && texto1.length() > longitudMinimaTexto1) {
+                            System.out.println("Se encontró un . para texto1");
+                            primerPuntoEncontrado = true;
+                        }
+                    } else if (texto2.length() <= longitudMinimaTexto2) {
+                        texto2.append(palabra).append(" ");
+                        if (palabra.contains(".") && texto2.length() > longitudMinimaTexto2) {
+                            System.out.println("Se encontró un . para texto2");
+                            // Aquí no necesitamos más control, pasamos al siguiente bloque.
+                            break;
+                        }
+                    }
+                }
+
+                for (int i = texto1.length() + texto2.length(); i < texto.length(); i++) {
+                    texto3.append(texto.charAt(i));
+                }
+
+                intent.putExtra("parrafo1", texto1.toString().trim());
+                intent.putExtra("parrafo2", texto2.toString().trim());
+                intent.putExtra("parrafo3", texto3.toString().trim());
+
                 startActivity(intent);
             });
 
             linearLayout.addView(button);
             colorIndex++;
         }
-
-
 
 
         //Llamado al boton de navegacion
@@ -103,7 +146,6 @@ public class List_Articulos extends AppCompatActivity {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setSelectedItemId(itemId);
     }
-    @NonNull
     private List<String> obtenerTitulos(){
         List<String> titulos = new ArrayList<>();
         SQLiteDatabase data = db.getReadableDatabase();
@@ -117,7 +159,6 @@ public class List_Articulos extends AppCompatActivity {
         db.close();
         return titulos;
     }
-    @NonNull
     private ArrayList<String> obtenerInfoArticulos(String nomArticulo) {
         ArrayList<String> articulo = new ArrayList<>();
         SQLiteDatabase data = db.getReadableDatabase();
@@ -133,6 +174,7 @@ public class List_Articulos extends AppCompatActivity {
         cursor.close();
         return articulo;
     }
+
 
 
 }
