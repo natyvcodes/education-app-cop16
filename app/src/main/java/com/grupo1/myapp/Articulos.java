@@ -84,6 +84,10 @@ public class Articulos extends AppCompatActivity {
 
             //reproducir audios
                 Button button = new Button(this);
+                button.setText("Reproducir Audio");
+                button.setPadding(16, 16, 16, 16);
+                button.setTextSize(18);
+                button.setAllCaps(false);
                 button.setOnClickListener(v -> {
                     @SuppressLint("DiscouragedApi") int audioResId = getResources().getIdentifier(articulo.get(5), "raw", getPackageName());
                     MediaPlayer mediaPlayer = MediaPlayer.create(this, audioResId);
