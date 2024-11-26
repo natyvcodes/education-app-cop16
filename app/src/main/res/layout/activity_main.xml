@@ -13,7 +13,6 @@
         android:layout_width="187dp"
         android:layout_height="192dp"
         android:src="@mipmap/cop16logo"
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

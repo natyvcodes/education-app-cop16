@@ -10,21 +10,16 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
-
 import database.DatabaseHelper;
 
 
@@ -108,6 +103,7 @@ public class List_Articulos extends AppCompatActivity {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setSelectedItemId(itemId);
     }
+    @NonNull
     private List<String> obtenerTitulos(){
         List<String> titulos = new ArrayList<>();
         SQLiteDatabase data = db.getReadableDatabase();
@@ -121,6 +117,7 @@ public class List_Articulos extends AppCompatActivity {
         db.close();
         return titulos;
     }
+    @NonNull
     private ArrayList<String> obtenerInfoArticulos(String nomArticulo) {
         ArrayList<String> articulo = new ArrayList<>();
         SQLiteDatabase data = db.getReadableDatabase();

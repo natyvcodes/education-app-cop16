@@ -85,7 +85,7 @@ public class RegisterActivity extends AppCompatActivity {
                     Toast.makeText(RegisterActivity.this, "Usuario ya existe", Toast.LENGTH_LONG).show();
                 }else {
                     assert emailEditText != null;
-                    db.registrarUsuario(usernameEditText.getText().toString(), emailEditText.getText().toString(), passwordEditText.getText().toString());
+                    db.registrarUsuario(usernameEditText.getText().toString(), emailEditText.getText().toString().toLowerCase(), passwordEditText.getText().toString());
                     navigateToMainActivity();
                 }
             } catch (SQLException e) {

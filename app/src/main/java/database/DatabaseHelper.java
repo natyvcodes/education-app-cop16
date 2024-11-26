@@ -94,7 +94,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         if (verificarEmailExistente(email)) {
             return false;
         }
-
         SQLiteDatabase db = null;
         try {
             db = this.getWritableDatabase();
@@ -105,10 +104,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
             long result = db.insert("usuario", null, value);
             if (result == -1) {
-                Log.e("UsuarioDBHelper", "Error al insertar el usuario");
                 return false;
             }
-            Log.e("BASEDEDATOS", "Insertado usuario");
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
