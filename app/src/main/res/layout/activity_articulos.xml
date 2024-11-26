@@ -11,17 +11,30 @@
     android:orientation="vertical"
     android:paddingTop="20dp"
     tools:context=".Articulos">
-
     <ScrollView
         android:id="@+id/scroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/bottom_navigation">
 
+
         <RelativeLayout
+            android:id="@+id/containerArticulo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp">
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@android:color/transparent"
+                android:onClick="retroceder"
+                android:paddingLeft="0dp"
+                android:text="regresar"
+                android:textColor="@color/Grey"
+                android:textSize="16sp" />
+
 
             <TextView
                 android:id="@+id/tv1"
@@ -33,7 +46,7 @@
                 android:textStyle="bold"
                 tools:layout_editor_absoluteX="146dp"
                 tools:layout_editor_absoluteY="134dp"
-
+                android:layout_marginTop="40dp"
                 />
 
             <LinearLayout
@@ -103,7 +116,9 @@
                 <RelativeLayout
                     android:id="@+id/audiomedia"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_marginLeft="20dp">
                 </RelativeLayout>
 
             </LinearLayout>
@@ -114,7 +129,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/Llaudio"
                 android:text="La COP 16 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam cursus non orci at luctus. Sed sed suscipit est, non viverra nunc. Proin diam augue, feugiat non faucibus sed, dapibus et mi. Maeger blandit tempor mauris vel vehicula."
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:layout_marginBottom="40dp"/>
 
         </RelativeLayout>
     </ScrollView>
@@ -128,5 +144,6 @@
         app:itemIconTint="@color/icon_selector"
         app:itemTextColor="@color/botton_navigation_selector"
         app:menu="@menu/botton_navigation_menu" />
+
 </RelativeLayout>
 

@@ -9,6 +9,7 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -92,7 +93,12 @@ public class Articulos extends AppCompatActivity {
 
         //reproducir audios
         Button button = new Button(this);
-        button.setText("Reproducir Audio");
+
+        Drawable icon = ContextCompat.getDrawable(this, R.drawable.play);
+        icon.setBounds(0, 0, icon.getIntrinsicWidth(), icon.getIntrinsicHeight()); // Ajustar tamaño del ícono
+        button.setCompoundDrawables(icon, null, null, null); // Ícono a la izquierda
+
+
         button.setPadding(16, 16, 16, 16);
         button.setTextSize(18);
         button.setAllCaps(false);
@@ -104,6 +110,7 @@ public class Articulos extends AppCompatActivity {
 
             mediaPlayer.setOnCompletionListener(mp -> {
                 mediaPlayer.release();
+                button.setEnabled(true);
             });
         });
         audioMedia.addView(button);
@@ -129,6 +136,11 @@ public class Articulos extends AppCompatActivity {
                 return true;
             }
         });
+
+    }
+    public void retroceder(View v){
+        Intent intent = new Intent(this, List_Articulos.class);
+        startActivity(intent);
     }
 
     private void selectBottomNavItem(int itemId) {

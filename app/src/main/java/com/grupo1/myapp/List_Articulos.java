@@ -64,7 +64,12 @@ public class List_Articulos extends AppCompatActivity {
             Drawable buttonShape = getDrawable(R.drawable.button_shape).mutate();
             buttonShape.setTint(colores[colorIndex % colores.length]);
             //Aqui nos traemos la imagenes de cada articulo
-            Drawable rightDrawable = getDrawable(R.drawable.prueba).mutate();
+            ArrayList<String> imagen = obtenerInfoArticulos(titulo);
+            String img = imagen.get(7); // Recupera el nombre de la imagen (sin extensión)
+
+// Busca el recurso drawable usando su nombre
+            @SuppressLint("DiscouragedApi") int resourceId = getResources().getIdentifier(img, "drawable", getPackageName());
+            Drawable rightDrawable = getDrawable(resourceId).mutate();
             button.setCompoundDrawablesWithIntrinsicBounds(null, null, rightDrawable, null);
             button.setBackground(buttonShape);
             button.setTextColor(Color.WHITE);

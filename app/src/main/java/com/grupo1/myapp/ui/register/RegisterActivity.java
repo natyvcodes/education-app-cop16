@@ -19,6 +19,7 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.grupo1.myapp.List_Articulos;
 import com.grupo1.myapp.Principal;
 import com.grupo1.myapp.databinding.ActivityRegisterBinding;
 
@@ -148,4 +149,5 @@ public class RegisterActivity extends AppCompatActivity {
     private void showRegisterFailed(@StringRes Integer errorString) {
         Toast.makeText(getApplicationContext(), errorString, Toast.LENGTH_SHORT).show();
     }
+
 }
