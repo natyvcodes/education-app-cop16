@@ -71,10 +71,11 @@
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="200dp"
                 android:layout_below="@+id/tvparrafo1"
                 android:layout_centerHorizontal="true"
                 android:layout_weight="1"
+                android:layout_marginVertical="15dp"
                 app:srcCompat="@drawable/cop16" />
 
             <TextView
@@ -100,13 +101,12 @@
                     android:layout_marginVertical="14dp"
                     app:srcCompat="@drawable/tucan" />
 
-                <ImageView
-                    android:id="@+id/imageView2"
+                <RelativeLayout
+                    android:id="@+id/audiomedia"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/play" />
+                    android:layout_height="wrap_content">
+
+                </RelativeLayout>
 
             </LinearLayout>
 
@@ -116,7 +116,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/Llaudio"
                 android:text="La COP 16 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam cursus non orci at luctus. Sed sed suscipit est, non viverra nunc. Proin diam augue, feugiat non faucibus sed, dapibus et mi. Maeger blandit tempor mauris vel vehicula."
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:layout_marginBottom="60dp"/>
 
         </RelativeLayout>
     </ScrollView>
