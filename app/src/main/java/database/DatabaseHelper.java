@@ -61,15 +61,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(TABLE_ARTICULO);
         db.execSQL("INSERT INTO ARTICULO (nombre, autor, fecha, parrafo, audio, imagen, imagen2) " +
-                "VALUES ('Introduccion a la COP16', 'Natalia Fajardo', 20240824, 'Colombia es reconocida como uno de los países con mayor biodiversidad del mundo. Ubicada en una posición estratégica en el trópico y con una geografía variada que incluye cordilleras, costas, llanuras, selvas y desiertos, este país suramericano alberga una asombrosa riqueza de especies y ecosistemas. Su diversidad biológica no solo es un motivo de orgullo nacional, sino también un recurso invaluable para la humanidad, ya que desempeña un papel crucial en el equilibrio ecológico global. El territorio colombiano se caracteriza por su heterogeneidad geográfica, climática y ecológica. La presencia de los Andes, que atraviesan el país en tres ramales principales, crea una variedad de microclimas y ecosistemas únicos . Además, Colombia tiene costas en el océano Pacífico y el mar Caribe, cada una con características biológicas distintas. La Amazonía, considerada el pulmón del mundo, cubre una parte significativa del país y es una fuente inagotable de biodiversidad.', 'prueba', 'introduccion','tucan');");
+                "VALUES ('Introduccion a la COP16', 'Natalia Fajardo', 20240824, 'Colombia es reconocida como uno de los países con mayor biodiversidad del mundo. Ubicada en una posición estratégica en el trópico y con una geografía variada que incluye cordilleras, costas, llanuras, selvas y desiertos, este país suramericano alberga una asombrosa riqueza de especies y ecosistemas. Su diversidad biológica no solo es un motivo de orgullo nacional, sino también un recurso invaluable para la humanidad, ya que desempeña un papel crucial en el equilibrio ecológico global. El territorio colombiano se caracteriza por su heterogeneidad geográfica, climática y ecológica. La presencia de los Andes, que atraviesan el país en tres ramales principales, crea una variedad de microclimas y ecosistemas únicos . Además, Colombia tiene costas en el océano Pacífico y el mar Caribe, cada una con características biológicas distintas. La Amazonía, considerada el pulmón del mundo, cubre una parte significativa del país y es una fuente inagotable de biodiversidad.', 'prueba', 'tucan','tucan');");
         db.execSQL("INSERT INTO ARTICULO (nombre, autor, fecha, parrafo, audio, imagen, imagen2) " +
-                "VALUES ('Acuerdos de la COP16', 'Autor 2', 20240821, 'Este es el segundo artículo', NULL, 'R.drawable.flor.png',NULL);");
+                "VALUES ('Acuerdos de la COP16', 'Autor 2', 20240821, 'Este es el segundo artículo', 'prueba', 'flor','flor');");
         db.execSQL("INSERT INTO ARTICULO (nombre, autor, fecha, parrafo, audio, imagen, imagen2) " +
-                "VALUES ('Firmas de la COP16', 'Autor 3', 20241122, 'Este es el tercer artículo', 'audio3.mp3', NULL, NULL);");
+                "VALUES ('Firmas de la COP16', 'Autor 3', 20241122, 'Este es el tercer artículo', 'prueba', 'flor','flor');");
         db.execSQL("INSERT INTO ARTICULO (nombre, autor, fecha, parrafo, audio, imagen, imagen2) " +
-                "VALUES ('Aves en Colombia', 'Autor 3', 20241122, 'Este es el tercer artículo', 'audio3.mp3', NULL, NULL);");
+                "VALUES ('Aves en Colombia', 'Autor 3', 20241122, 'Este es el tercer artículo', 'prueba','flor','flor');");
         db.execSQL("INSERT INTO ARTICULO (nombre, autor, fecha, parrafo, audio, imagen, imagen2) " +
-                "VALUES ('Fauna y flora como cuidarla', 'Autor 3', 20241122, 'Este es el tercer artículo', 'audio3.mp3', NULL, NULL);");
+                "VALUES ('Fauna y flora como cuidarla', 'Autor 3', 20241122, 'Este es el tercer artículo', 'prueba','flor','flor');");
     }
 
     @Override

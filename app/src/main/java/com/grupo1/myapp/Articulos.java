@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -33,7 +34,7 @@ import database.DatabaseHelper;
 public class Articulos extends AppCompatActivity {
     private final DatabaseHelper db = new DatabaseHelper(this);
     private TextView titulo, tvautor, tvfecha, tvparrafo1, tvparrafo2, tvparrafo3;
-    private ImageView imageView;
+    private ImageView imageView,imageMedia;
     private RelativeLayout audioMedia;
     private BottomNavigationView bottomNavigationView;
 
@@ -64,6 +65,7 @@ public class Articulos extends AppCompatActivity {
         tvautor.setText(articulo.get(2));
         audioMedia = findViewById(R.id.audiomedia);
         imageView = findViewById(R.id.imageView);
+        imageMedia = findViewById(R.id.imageAudio);
         tvparrafo1 = findViewById(R.id.tvparrafo1);
         tvparrafo2 = findViewById(R.id.tvparrafo2);
         tvparrafo3 = findViewById(R.id.tvparrafo3);
@@ -81,6 +83,12 @@ public class Articulos extends AppCompatActivity {
         Drawable imageDra = ContextCompat.getDrawable(getApplicationContext(), imageResource);
         imageView.setImageDrawable(imageDra);
 
+        String nomImage2 = articulo.get(7);
+        String uri2 = "@drawable/" + nomImage2;
+        @SuppressLint("DiscouragedApi") int imageResource2 = getResources().getIdentifier(uri2, null, getPackageName());
+        Drawable imageDra2 = ContextCompat.getDrawable(getApplicationContext(), imageResource2);
+        imageMedia.setImageDrawable(imageDra2);
+        Log.d("Imagen numero 2:", nomImage2);
 
         //reproducir audios
         Button button = new Button(this);
