@@ -97,7 +97,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             db = this.getWritableDatabase();
             ContentValues value = new ContentValues();
             value.put("nombre", nombre);
-            value.put("email", email);
+            value.put("email", email.toLowerCase());
             value.put("contrasena", contrasena);
 
             long result = db.insert("usuario", null, value);
