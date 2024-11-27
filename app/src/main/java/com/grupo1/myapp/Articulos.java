@@ -100,18 +100,32 @@ public class Articulos extends AppCompatActivity {
 
 
         button.setPadding(16, 16, 16, 16);
-        button.setTextSize(18);
+        button.setTextSize(12);
         button.setAllCaps(false);
+        final MediaPlayer[] mediaPlayer = {null};
+        final boolean[] isPlaying = {false};
         button.setOnClickListener(v -> {
-            @SuppressLint("DiscouragedApi") int audioResId = getResources().getIdentifier(articulo.get(5), "raw", getPackageName());
-            MediaPlayer mediaPlayer = MediaPlayer.create(this, audioResId);
-            mediaPlayer.start();
-            button.setEnabled(false);
+            if (mediaPlayer[0] == null) {
+                @SuppressLint("DiscouragedApi")
+                int audioResId = getResources().getIdentifier(articulo.get(5), "raw", getPackageName());
+                mediaPlayer[0] = MediaPlayer.create(this, audioResId);
+                mediaPlayer[0].setOnCompletionListener(mp -> {
+                    mediaPlayer[0].release();
+                    mediaPlayer[0] = null;
+                    isPlaying[0] = false;
+                    button.setText("Reproducir"); // Cambiar el texto al completar
+                });
+            }
 
-            mediaPlayer.setOnCompletionListener(mp -> {
-                mediaPlayer.release();
-                button.setEnabled(true);
-            });
+            if (isPlaying[0]) {
+                mediaPlayer[0].pause();
+                button.setText("Reproducir");
+                isPlaying[0] = false;
+            } else {
+                mediaPlayer[0].start();
+                button.setText("Pausar");
+                isPlaying[0] = true;
+            }
         });
         audioMedia.addView(button);
 

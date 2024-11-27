@@ -74,9 +74,6 @@ public class List_Articulos extends AppCompatActivity {
             button.setBackground(buttonShape);
             button.setTextColor(Color.WHITE);
 
-
-
-
             button.setOnClickListener(v -> {
                 Intent intent = new Intent(this, Articulos.class);
                 ArrayList<String> articulo = obtenerInfoArticulos(titulo);
@@ -88,7 +85,7 @@ public class List_Articulos extends AppCompatActivity {
                 StringBuilder texto3 = new StringBuilder();
 
                 int longitudMinimaTexto1 = 120;
-                int longitudMinimaTexto2 = 275;
+                int longitudMinimaTexto2 = 280;
 
                 boolean primerPuntoEncontrado = false;
 
