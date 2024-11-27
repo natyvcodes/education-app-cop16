@@ -150,5 +150,9 @@ public class RegisterActivity extends AppCompatActivity {
     private void showRegisterFailed(@StringRes Integer errorString) {
         Toast.makeText(getApplicationContext(), errorString, Toast.LENGTH_SHORT).show();
     }
-
+    public void login(View view){
+        Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+        startActivity(intent);
+   
+  
 }

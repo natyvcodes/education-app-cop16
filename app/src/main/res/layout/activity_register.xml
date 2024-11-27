@@ -30,6 +30,7 @@
             android:autofillHints="name"
             android:hint="@string/r_placeholder_name"
             android:inputType="text"
+            android:drawableLeft="@drawable/user"
             android:selectAllOnFocus="true"
             android:background="@drawable/edit_text_shape"
             android:layout_margin="5dp"/>
@@ -38,6 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/prompt_email"
+            android:drawableLeft="@drawable/input_email"
             android:inputType="textEmailAddress"
             android:selectAllOnFocus="true"
             android:background="@drawable/edit_text_shape"
@@ -50,6 +52,7 @@
             android:hint="@string/prompt_password"
             android:background="@drawable/edit_text_shape"
             android:imeActionLabel="@string/action_sign_in_short"
+            android:drawableLeft="@drawable/input_lock"
             android:imeOptions="actionDone"
             android:inputType="textPassword"
             android:selectAllOnFocus="true"
@@ -66,6 +69,17 @@
             android:selectAllOnFocus="true"
             android:background="@drawable/edit_text_shape"
             android:layout_margin="5dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="¿Ya tienes una cuenta? Inicia sesion"
+            android:textStyle="bold"
+            android:onClick="login"
+            android:layout_marginTop="7dp"
+            android:textSize="16dp"
+            android:layout_marginLeft="12dp"
+            android:textColor="@color/Red"
+            />
 
         <Button
             android:id="@+id/register"

@@ -15,11 +15,11 @@
 
     <!-- Texto de Register-->
     <string name="title_register">REGISTRO</string>
-    <string name="r_placeholder_name">Nombre</string>
+    <string name="r_placeholder_name">\u00A0Nombre</string>
     <string name="prompt_password">\u00A0Contraseña</string>
     <string name="register_failed">"Register failed"</string>
     <string name="title_activity_login">LoginActivity</string>
-    <string name="login_failed">"Login failed"</string>
+    <string name="login_failed">"Error en usuario y/o contraseña"</string>
     <string name="title_activity_settings">SettingsActivity</string>
 
     <!-- Preference Titles -->
@@ -29,7 +29,6 @@
     <!-- Messages Preferences -->
     <string name="signature_title">Your signature</string>
     <string name="reply_title">Default reply action</string>
-
     <!-- Sync Preferences -->
     <string name="sync_title">Sync email periodically</string>
     <string name="attachment_title">Download incoming attachments</string>

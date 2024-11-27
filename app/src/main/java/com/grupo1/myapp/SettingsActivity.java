@@ -16,9 +16,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.preference.PreferenceFragmentCompat;
 
+import com.grupo1.myapp.data.LoginDataSource;
 import com.grupo1.myapp.data.LoginRepository;
 import com.grupo1.myapp.data.model.LoggedInUser;
 import com.grupo1.myapp.ui.login.LoginActivity;
+
+import database.DatabaseHelper;
 
 public class SettingsActivity extends AppCompatActivity {
     private Button inicio_fin;
@@ -50,7 +53,10 @@ public class SettingsActivity extends AppCompatActivity {
         if (isLoggedIn) {
             inicio_fin.setText("Cerrar sesion");
             estado.setText("Activo");
-            nombre.setText("Nombre:" );
+            String nombreUsuario = "Nombre: " + LoginDataSource.nombre;
+            nombre.setText(nombreUsuario);
+            String correoUsuario = "Correo: " + LoginDataSource.correo;
+            correo.setText(correoUsuario);
             inicio_fin.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.Red));
             inicio_fin.setOnClickListener(new View.OnClickListener() {
                 @Override
