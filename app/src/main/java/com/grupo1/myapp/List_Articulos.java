@@ -138,7 +138,9 @@ public class List_Articulos extends AppCompatActivity {
                     Intent intent = new Intent(List_Articulos.this, List_Articulos.class);
                     startActivity(intent);
                 }else if(id == R.id.setting){
-
+                    Intent intent = new Intent(List_Articulos.this, SettingsActivity.class);
+                    startActivity(intent);
+                    return true;
                 }
                 return true;
             }

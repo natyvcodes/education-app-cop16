@@ -22,6 +22,7 @@ import android.widget.Toast;
 import com.grupo1.myapp.List_Articulos;
 import com.grupo1.myapp.Principal;
 import com.grupo1.myapp.databinding.ActivityRegisterBinding;
+import com.grupo1.myapp.ui.login.LoginActivity;
 
 import database.DatabaseHelper;
 
@@ -141,7 +142,7 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void navigateToMainActivity() {
-        Intent intent = new Intent(RegisterActivity.this, Principal.class);
+        Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
         startActivity(intent);
         finish();
     }
