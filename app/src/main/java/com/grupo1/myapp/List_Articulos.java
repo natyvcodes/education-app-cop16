@@ -64,13 +64,15 @@ public class List_Articulos extends AppCompatActivity {
             Drawable buttonShape = getDrawable(R.drawable.button_shape).mutate();
             buttonShape.setTint(colores[colorIndex % colores.length]);
             //Aqui nos traemos la imagenes de cada articulo
-            Drawable rightDrawable = getDrawable(R.drawable.prueba).mutate();
+            ArrayList<String> imagen = obtenerInfoArticulos(titulo);
+            String img = imagen.get(7); // Recupera el nombre de la imagen (sin extensión)
+
+// Busca el recurso drawable usando su nombre
+            @SuppressLint("DiscouragedApi") int resourceId = getResources().getIdentifier(img, "drawable", getPackageName());
+            Drawable rightDrawable = getDrawable(resourceId).mutate();
             button.setCompoundDrawablesWithIntrinsicBounds(null, null, rightDrawable, null);
             button.setBackground(buttonShape);
             button.setTextColor(Color.WHITE);
-
-
-
 
             button.setOnClickListener(v -> {
                 Intent intent = new Intent(this, Articulos.class);
@@ -83,7 +85,7 @@ public class List_Articulos extends AppCompatActivity {
                 StringBuilder texto3 = new StringBuilder();
 
                 int longitudMinimaTexto1 = 120;
-                int longitudMinimaTexto2 = 275;
+                int longitudMinimaTexto2 = 280;
 
                 boolean primerPuntoEncontrado = false;
 

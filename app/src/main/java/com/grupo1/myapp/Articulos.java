@@ -9,6 +9,7 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -91,19 +92,39 @@ public class Articulos extends AppCompatActivity {
 
         //reproducir audios
         Button button = new Button(this);
-        button.setText("Reproducir Audio");
-        button.setPadding(16, 16, 16, 16);
-        button.setTextSize(18);
-        button.setAllCaps(false);
-        button.setOnClickListener(v -> {
-            @SuppressLint("DiscouragedApi") int audioResId = getResources().getIdentifier(articulo.get(5), "raw", getPackageName());
-            MediaPlayer mediaPlayer = MediaPlayer.create(this, audioResId);
-            mediaPlayer.start();
-            button.setEnabled(false);
 
-            mediaPlayer.setOnCompletionListener(mp -> {
-                mediaPlayer.release();
-            });
+        Drawable icon = ContextCompat.getDrawable(this, R.drawable.play);
+        icon.setBounds(0, 0, icon.getIntrinsicWidth(), icon.getIntrinsicHeight()); // Ajustar tamaño del ícono
+        button.setCompoundDrawables(icon, null, null, null); // Ícono a la izquierda
+
+
+        button.setPadding(16, 16, 16, 16);
+        button.setTextSize(12);
+        button.setAllCaps(false);
+        final MediaPlayer[] mediaPlayer = {null};
+        final boolean[] isPlaying = {false};
+        button.setOnClickListener(v -> {
+            if (mediaPlayer[0] == null) {
+                @SuppressLint("DiscouragedApi")
+                int audioResId = getResources().getIdentifier(articulo.get(5), "raw", getPackageName());
+                mediaPlayer[0] = MediaPlayer.create(this, audioResId);
+                mediaPlayer[0].setOnCompletionListener(mp -> {
+                    mediaPlayer[0].release();
+                    mediaPlayer[0] = null;
+                    isPlaying[0] = false;
+                    button.setText("Reproducir"); // Cambiar el texto al completar
+                });
+            }
+
+            if (isPlaying[0]) {
+                mediaPlayer[0].pause();
+                button.setText("Reproducir");
+                isPlaying[0] = false;
+            } else {
+                mediaPlayer[0].start();
+                button.setText("Pausar");
+                isPlaying[0] = true;
+            }
         });
         audioMedia.addView(button);
 
@@ -130,6 +151,11 @@ public class Articulos extends AppCompatActivity {
                 return true;
             }
         });
+
+    }
+    public void retroceder(View v){
+        Intent intent = new Intent(this, List_Articulos.class);
+        startActivity(intent);
     }
 
     private void selectBottomNavItem(int itemId) {

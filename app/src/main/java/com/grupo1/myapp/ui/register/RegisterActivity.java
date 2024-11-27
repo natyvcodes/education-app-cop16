@@ -19,6 +19,7 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.grupo1.myapp.List_Articulos;
 import com.grupo1.myapp.Principal;
 import com.grupo1.myapp.databinding.ActivityRegisterBinding;
 import com.grupo1.myapp.ui.login.LoginActivity;
@@ -152,5 +153,6 @@ public class RegisterActivity extends AppCompatActivity {
     public void login(View view){
         Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
         startActivity(intent);
-    }
+   
+  
 }
