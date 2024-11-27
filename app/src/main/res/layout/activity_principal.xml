@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,16 +7,111 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-
+    android:orientation="vertical"
+    android:paddingTop="20dp"
+    android:background="@color/Background"
     tools:context=".Principal">
 
-    <TextView
-        android:id="@+id/parrafo"
+
+
+    <ScrollView
+        android:id="@+id/scroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:textSize="20sp"
-        android:text="@string/tx_bienvenida"
-    />
+        android:layout_above="@+id/bottom_navigation">
 
-</androidx.appcompat.widget.LinearLayoutCompat>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp"
+        >
+
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="¿Qué es la COP16?"
+            android:textColor="@color/BlueMain"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="146dp"
+            tools:layout_editor_absoluteY="134dp"
+
+            />
+
+        <LinearLayout
+            android:id="@+id/info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv1"
+            android:layout_marginBottom="14dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvfecha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:text="28/08/2024"
+                android:textColor="@color/Grey" />
+
+            <TextView
+                android:id="@+id/tvautor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Natalia Fajardo"
+                android:textColor="@color/Grey" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvparrafo1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/info"
+            android:text="La COP 16 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam cursus non orci at luctus. Sed sed suscipit est, non viverra nunc. Proin diam augue, feugiat non faucibus sed, dapibus et mi. Maeger blandit tempor mauris vel vehicula."
+            android:textSize="16sp" />
+
+        <WebView
+        android:id="@+id/webVideo"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+            android:layout_below="@+id/tvparrafo1"
+            android:layout_marginVertical="20dp"
+        >
+
+        </WebView>
+        <TextView
+            android:id="@+id/faq"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Preguntas frecuentes"
+            android:textColor="@color/BlueMain"
+            android:textSize="20sp"
+            android:layout_marginBottom="20dp"
+            android:layout_below="@id/webVideo"
+
+            />
+<androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/faqComponent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_below="@+id/faq"
+    android:scrollbars="vertical"
+    android:fadeScrollbars="false"
+    android:paddingBottom="20dp"
+    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+    />
+    </RelativeLayout>
+    </ScrollView>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:background="#FFFFFF"
+        android:layout_alignParentBottom="true"
+        app:itemIconTint="@color/icon_selector"
+        app:itemTextColor="@color/botton_navigation_selector"
+        app:menu="@menu/botton_navigation_menu"
+        android:layout_height="wrap_content"/>
+
+
+</RelativeLayout>
