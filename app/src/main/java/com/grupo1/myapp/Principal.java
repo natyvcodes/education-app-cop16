@@ -46,9 +46,11 @@ public class Principal extends AppCompatActivity {
                 }else if(id == R.id.articulos) {
                     Intent intent = new Intent(Principal.this, List_Articulos.class);
                     startActivity(intent);
-
+                    return true;
                 }else if(id == R.id.setting){
-
+                    Intent intent = new Intent(Principal.this, SettingsActivity.class);
+                    startActivity(intent);
+                    return true;
                 }
                 return true;
             }

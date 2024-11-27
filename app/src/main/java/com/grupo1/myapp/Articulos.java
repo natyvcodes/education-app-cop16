@@ -32,7 +32,6 @@ import database.DatabaseHelper;
 
 
 public class Articulos extends AppCompatActivity {
-    private final DatabaseHelper db = new DatabaseHelper(this);
     private TextView titulo, tvautor, tvfecha, tvparrafo1, tvparrafo2, tvparrafo3;
     private ImageView imageView,imageMedia;
     private RelativeLayout audioMedia;
@@ -124,6 +123,8 @@ public class Articulos extends AppCompatActivity {
                     startActivity(intent);
                     return true;
                 } else if (id == R.id.setting) {
+                    Intent intent = new Intent(Articulos.this, SettingsActivity.class);
+                    startActivity(intent);
                     return true;
                 }
                 return true;
